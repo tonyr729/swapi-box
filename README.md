@@ -1,7 +1,7 @@
 
-![SWAPIbox]( "SWAPIbox logo")
+# SWAPIbox
 
-SWAPIbox was a project to focus on utilizing API data from ![The Star Wars API](https://swapi.co/documentation "Starwars API") to build a test driven react app.
+SWAPIbox was a project to focus on utilizing API data from [The Star Wars API](https://swapi.co/documentation "Starwars API") to build a test driven react app.
 
 
 
