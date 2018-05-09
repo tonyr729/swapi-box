@@ -5,7 +5,7 @@ class DataFetcher {
   constructor(){}
 
   fetchCrawl = async (randomNumber) => {
-    const url = `https://swapi.co/api/films/${randomNumber}/`
+    // const url = `https://swapi.co/api/films/${randomNumber}/`
     const response = await fetch(url);
     const data = await response.json();
     const crawl = {episode: data.episode_id, title: data.title, crawl: data.opening_crawl, release: data.release_date}
@@ -13,7 +13,7 @@ class DataFetcher {
   }
 
   fetchPeople = async () => {
-    const url = 'https://swapi.co/api/people/'
+    // const url = 'https://swapi.co/api/people/'
     const response = await fetch(url);
     const data = await response.json();
     const people = await cleaner.cleanPeople(data.results)
