@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DataFetcher from '../../../Helpers/Fetcher/DataFetcher'
+import APIManager from '../../../API/Helpers/API Manager/apiManager'
 import './index.css'
 
 
@@ -16,8 +16,8 @@ class Crawl extends Component {
 
   async componentDidMount(){
     const randomNumber = Math.floor(Math.random() * 7) + 1;
-    const fetcher = new DataFetcher();
-    const crawl = await fetcher.fetchCrawl(randomNumber)
+    const api = new APIManager();
+    const crawl = await api.fetchCrawl(randomNumber)
     this.setCrawl(crawl)
   }
 
