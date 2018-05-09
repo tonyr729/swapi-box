@@ -1,0 +1,18 @@
+.main {
+  position: absolute;
+  z-index: 100;
+  animation: main 40s;
+  opacity: 1;
+}
+
+@keyframes main {
+  0% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
