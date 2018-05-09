@@ -13,7 +13,7 @@ class Header extends Component {
     return (
       <div>
         <h1 className="header-title">SWAPI-Box</h1>
-        <button>View Favorites</button>
+        <button>View Favorites 0</button>
         <button>People</button>
         <button>Planets</button>
         <button>Vehicles</button>
