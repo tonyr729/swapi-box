@@ -20,12 +20,17 @@ class Main extends Component {
     })
   }
 
-  
+  setVehicleData= async () => {
+    const vehicles = await apiManager.fetchVehicles();
+    this.setState({
+      data: vehicles
+    })
+  }
 
   render() {
     return(
       <div className="main">
-        <Header setPeopleData={ this.setPeopleData }/>
+        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData }/>
         <CardContainer data={ this.state.data } />
       </div>
     )

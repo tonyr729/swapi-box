@@ -15,9 +15,9 @@ class Header extends Component {
       <div>
         <h1 className="header-title">SWAPI-Box</h1>
         <button>View Favorites 0</button>
-        <button onClick={this.props.setPeopleData}>People</button>
+        <button onClick={ this.props.setPeopleData }>People</button>
         <button>Planets</button>
-        <button>Vehicles</button>
+        <button onClick={ this.props.setVehicleData }>Vehicles</button>
       </div>
     )
   }

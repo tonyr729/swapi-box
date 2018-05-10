@@ -16,7 +16,18 @@ class APIManager {
     return Promise.all(unresolvedPromises);
   }
 
-  
+  cleanVehicles = (vehicles) => {
+    const unresolvedPromises = vehicles.map(async vehicle => {
+      const name = vehicle.name;
+      const model = vehicle.model;
+      const vehicleClass = vehicle.vehicle_class;
+      const passengers = vehicle.passengers;
+
+      return {name, model, vehicleClass, passengers}
+    })
+
+    return Promise.all(unresolvedPromises);
+  }
 
   // Fetchers
 
@@ -54,7 +65,14 @@ class APIManager {
     return species;
   }
 
-  
+  fetchVehicles = async () => {
+    const url = 'https://swapi.co/api/vehicles/'
+    const response = await fetch(url);
+    const data = await response.json();
+    const vehicles = await this.cleanVehicles(data.results)
+    
+    return vehicles;
+  }
 
 }
 
