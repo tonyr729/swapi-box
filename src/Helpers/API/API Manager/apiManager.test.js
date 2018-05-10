@@ -50,5 +50,48 @@ describe('APIManager class', () => {
     })
   })
 
+  describe('fetch People', () => {
+    let api;
+    let responce;
+
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        results: [
+          {
+            name: "Luke Skywalker", 
+            homeworld: "url", 
+            species: [ "url" ]
+          }
+        ]
+      }
+      api.cleanPeople = jest.fn().mockImplementation(() => responce)
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
+  
+    it('fetch is called with the correct params', async () => {
+      const expected = "https://swapi.co/api/people/"
+  
+      await api.fetchPeople()
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+  
+    it('returns an object if status code is ok', async () => {
+      
+      await expect(api.fetchPeople()).resolves.toEqual(responce)
+    })
+  
+    it('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchPeople()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
+
+ 
   
 })
