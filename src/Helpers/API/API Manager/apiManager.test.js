@@ -79,6 +79,13 @@ describe('APIManager class', () => {
 
       expect(window.fetch).toHaveBeenCalledWith(expected)
     })
+
+    it('calls cleanPeople function with the correct perams', async () => {
+
+      await api.fetchPeople()
+      
+      expect(api.cleanPeople).toHaveBeenCalledWith(responce.results)
+    })
   
     it('returns an object if status code is ok', async () => {
       
@@ -129,5 +136,41 @@ describe('APIManager class', () => {
     })
   })
 
+  describe('fetch Species', () => {
+    let api;
+    let responce 
+
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        name: "Human"
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
   
+    it('fetch is called with the correct params', async () => {
+      const expected = "url"
+  
+      await api.fetchSpecies(expected)
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+  
+    it('returns an object if status code is ok', async () => {
+      
+      await expect(api.fetchSpecies()).resolves.toEqual(responce.name)
+    })
+  
+    it('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchSpecies()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
+
+
 })

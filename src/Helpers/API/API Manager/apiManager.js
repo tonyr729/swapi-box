@@ -41,41 +41,57 @@ class APIManager {
   }
 
   fetchSpecies = async (url) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const species = data.name;
-    
-    return species;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const species = data.name;
+      
+      return species;
+    } catch (error) {
+      throw new Error('Failed to fetch data')
+    }
   }
   
   fetchVehicles = async () => {
-    const url = 'https://swapi.co/api/vehicles/'
-    const response = await fetch(url);
-    const data = await response.json();
-    const vehicles = await this.cleanVehicles(data.results)
-    
-    return vehicles;
+    try {
+      const url = 'https://swapi.co/api/vehicles/'
+      const response = await fetch(url);
+      const data = await response.json();
+      const vehicles = await this.cleanVehicles(data.results)
+      
+      return vehicles;
+    } catch (error) {
+      throw new Error('Failed to fetch data')
+    }
   }
   
   fetchPlanets = async () => {
-    const url = 'https://swapi.co/api/planets/'
-    const response = await fetch(url);
-    const data = await response.json();
-    const planets = await this.cleanPlanets(data.results)
-    
-    return planets;
+    try {
+      const url = 'https://swapi.co/api/planets/'
+      const response = await fetch(url);
+      const data = await response.json();
+      const planets = await this.cleanPlanets(data.results)
+      
+      return planets;
+    } catch (error) {
+      throw new Error('Failed to fetch data')
+    }
   }
   
-  fetchResidents = (residentURL) => {
-    const unresolvedPromises = residentURL.map(async residentURL => {
-      const response = await fetch(residentURL);
-      const data = await response.json();
-      const resident = data.name;
+  fetchResidents = (residentURLs) => {
+    try {
+      const unresolvedPromises = residentURLs.map(async residentURL => {
+        const response = await fetch(residentURL);
+        const data = await response.json();
+        const resident = data.name;
+        
+        return resident;
+      })
       
-      return resident;
-    })
-    
-    return Promise.all(unresolvedPromises);
+      return Promise.all(unresolvedPromises);
+    } catch (error) {
+      throw new Error(`Failed to fetch data ${error}`)
+    }
   } 
 
   //Cleaners
