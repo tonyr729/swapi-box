@@ -275,5 +275,40 @@ describe('APIManager class', () => {
     })
   })
 
+  describe('fetch Residents', () => {
+    let api;
+    let responce 
 
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        name: "Tony"
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
+  
+    it('fetch is called with the correct params', async () => {
+      const expected = ["url"]
+  
+      await api.fetchResidents(expected)
+
+      expect(window.fetch).toHaveBeenCalledWith(...expected)
+    })
+  
+    it('returns an object if status code is ok', async () => {
+      const urls = ["url", "url", "url"]
+
+      await expect(api.fetchResidents(urls)).resolves.toEqual([responce.name, responce.name])
+    })
+  
+    it.skip('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchResidents()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
 })
