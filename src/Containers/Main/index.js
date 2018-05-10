@@ -27,10 +27,17 @@ class Main extends Component {
     })
   }
 
+  setPlanetData= async () => {
+    const planets = await apiManager.fetchPlanets();
+    this.setState({
+      data: planets
+    })
+  }
+
   render() {
     return(
       <div className="main">
-        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData }/>
+        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData }/>
         <CardContainer data={ this.state.data } />
       </div>
     )

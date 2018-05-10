@@ -29,6 +29,21 @@ class APIManager {
     return Promise.all(unresolvedPromises);
   }
 
+  cleanPlanets = (planets) => {
+    const unresolvedPromises = planets.map(async planet => {
+      const name = planet.name;
+      const terrain = planet.terrain;
+      const population = planet.population;
+      const climate = planet.climate;
+      const residentNames = await this.fetchResidents(planet.residents)
+      const residents = residentNames.join(", ");
+
+      return {name, terrain, population, climate, residents}
+    })
+
+    return Promise.all(unresolvedPromises);
+  }
+
   // Fetchers
 
   fetchCrawl = async (randomNumber) => {
@@ -74,6 +89,26 @@ class APIManager {
     return vehicles;
   }
 
+  fetchPlanets = async () => {
+    const url = 'https://swapi.co/api/planets/'
+    const response = await fetch(url);
+    const data = await response.json();
+    const planets = await this.cleanPlanets(data.results)
+    
+    return planets;
+  }
+
+  fetchResidents = (residentURL) => {
+    const unresolvedPromises = residentURL.map(async residentURL => {
+      const response = await fetch(residentURL);
+      const data = await response.json();
+      const resident = data.name;
+
+      return resident;
+    })
+    
+    return Promise.all(unresolvedPromises);
+  } 
 }
 
 export default APIManager;
