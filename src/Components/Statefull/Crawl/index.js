@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import APIManager from '../../../API/Helpers/API Manager/apiManager'
+import APIManager from '../../../Helpers/API/API Manager/apiManager'
 import './index.css'
 
 
