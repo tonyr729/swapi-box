@@ -172,5 +172,56 @@ describe('APIManager class', () => {
     })
   })
 
+  describe('fetch Vehicles', () => {
+    let api;
+    let responce;
+
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        results: [
+          {
+            name: "Sand Crawler", 
+            model: "Digger Crawler", 
+            passengers: "30", 
+            vehicle_class: "wheeed"
+          }
+        ]
+      }
+      api.cleanVehicles = jest.fn().mockImplementation(() => responce)
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
+  
+    it('fetch is called with the correct params', async () => {
+      const expected = "https://swapi.co/api/vehicles/"
+  
+      await api.fetchVehicles()
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+    
+    it('calls cleanVehicles function with the correct perams', async () => {
+
+      await api.fetchVehicles()
+      
+      expect(api.cleanVehicles).toHaveBeenCalledWith(responce.results)
+    })
+
+    it('returns an object if status code is ok', async () => {
+      
+      await expect(api.fetchVehicles()).resolves.toEqual(responce)
+    })
+    
+
+    it('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchVehicles()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
+
 
 })
