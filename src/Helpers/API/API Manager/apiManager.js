@@ -1,5 +1,3 @@
-import people from '../../MockData/People'
-
 class APIManager {
 
   //Cleaners
@@ -12,11 +10,13 @@ class APIManager {
       const species = await this.fetchSpecies(person.species);
       const population = homeworldObject.population;
       
-      return {name , homeworld, species, population}
+      return {name, homeworld, species, population}
     })
 
     return Promise.all(unresolvedPromises);
   }
+
+  
 
   // Fetchers
 
@@ -53,6 +53,8 @@ class APIManager {
     
     return species;
   }
+
+  
 
 }
 
