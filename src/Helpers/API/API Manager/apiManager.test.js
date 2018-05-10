@@ -402,5 +402,61 @@ describe('APIManager class', () => {
 
   })
 
+  describe('clean Vehicle', () => {
+    let newApi;
+    let vehicles;
+    let vehicle
+    let cleanResponse;
+    
+    
+    beforeEach(() => {
+      newApi = new APIManager();
+      vehicles = [
+        {
+          name: "Sand Crawler", 
+          model: "Digger Crawler", 
+          passengers: "30", 
+          vehicle_class: "wheeed"
+        },
+        {
+          name: "T-16 skyhopper", 
+          model: "T-16 skyhopper", 
+          passengers: "1", 
+          vehicle_class: "repulsorcraft"
+        }
+      ]
+
+      vehicle = {
+        name: "Sand Crawler", 
+        model: "Digger Crawler", 
+        passengers: "30", 
+        vehicle_class: "wheeed"
+      }
+
+      cleanResponse = [
+        {
+          name: vehicles[0].name, 
+          model: vehicles[0].model,
+          passengers: vehicles[0].passengers,
+          vehicleClass: vehicles[0].vehicle_class
+        },
+        {
+          name: vehicles[1].name, 
+          model: vehicles[1].model,
+          passengers: vehicles[1].passengers,
+          vehicleClass: vehicles[1].vehicle_class
+        }
+      ]
+    })
+    
+    it('returns the desired object if passed correct perams', async () => {
+      const result = await newApi.cleanVehicles(vehicles)
+
+      await expect(result).toEqual(cleanResponse)
+    })
+
+
+  })
+
 
 })
