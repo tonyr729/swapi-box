@@ -223,5 +223,57 @@ describe('APIManager class', () => {
     })
   })
 
+  describe('fetch Planets', () => {
+    let api;
+    let responce;
+
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        results: [
+          {
+            name: "Alderaan", 
+            climate: "temperate", 
+            terrain: "grasslands, mountains", 
+            population: "2000000000", 
+            residents: ["url", "url", "url"] 
+          }
+        ]
+      }
+      api.cleanPlanets = jest.fn().mockImplementation(() => responce)
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
+  
+    it('fetch is called with the correct params', async () => {
+      const expected = "https://swapi.co/api/planets/"
+  
+      await api.fetchPlanets()
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+    
+    it('calls cleanVehicles function with the correct perams', async () => {
+
+      await api.fetchPlanets()
+      
+      expect(api.cleanPlanets).toHaveBeenCalledWith(responce.results)
+    })
+
+    it('returns an object if status code is ok', async () => {
+      
+      await expect(api.fetchPlanets()).resolves.toEqual(responce)
+    })
+    
+
+    it('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchPlanets()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
+
 
 })
