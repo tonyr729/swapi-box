@@ -87,10 +87,10 @@ class APIManager {
         
         return resident;
       })
-      
+
       return Promise.all(unresolvedPromises);
     } catch (error) {
-      throw new Error(`Failed to fetch data ${error}`)
+      throw new Error('Failed to fetch data')
     }
   } 
 

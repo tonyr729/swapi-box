@@ -8,11 +8,11 @@ describe('APIManager class', () => {
 
   describe('fetch Crawl', () => {
     let api;
-    let responce
+    let response
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         episode_id: 1, 
         title: "Your a wizard Anny!",
         opening_crawl: "Luke, I am your father",
@@ -21,7 +21,7 @@ describe('APIManager class', () => {
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -36,10 +36,10 @@ describe('APIManager class', () => {
     it('returns an object if status code is ok', async () => {
       
       await expect(api.fetchCrawl()).resolves.toEqual({
-        crawl: responce.opening_crawl,
-        episode: responce.episode_id,
-        release: responce.release_date,
-        title: responce.title
+        crawl: response.opening_crawl,
+        episode: response.episode_id,
+        release: response.release_date,
+        title: response.title
       })
     })
   
@@ -52,11 +52,11 @@ describe('APIManager class', () => {
 
   describe('fetch People', () => {
     let api;
-    let responce;
+    let response;
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         results: [
           {
             name: "Luke Skywalker", 
@@ -65,10 +65,10 @@ describe('APIManager class', () => {
           }
         ]
       }
-      api.cleanPeople = jest.fn().mockImplementation(() => responce)
+      api.cleanPeople = jest.fn().mockImplementation(() => response)
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -84,12 +84,12 @@ describe('APIManager class', () => {
 
       await api.fetchPeople()
       
-      expect(api.cleanPeople).toHaveBeenCalledWith(responce.results)
+      expect(api.cleanPeople).toHaveBeenCalledWith(response.results)
     })
   
     it('returns an object if status code is ok', async () => {
       
-      await expect(api.fetchPeople()).resolves.toEqual(responce)
+      await expect(api.fetchPeople()).resolves.toEqual(response)
     })
   
     it('throws an error if status code is not ok', async () => {
@@ -101,18 +101,18 @@ describe('APIManager class', () => {
 
   describe('fetch Homeworld', () => {
     let api;
-    let responce 
+    let response 
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         name: "Earth",
         population: "6000000000"
       }
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -126,7 +126,7 @@ describe('APIManager class', () => {
   
     it('returns an object if status code is ok', async () => {
       
-      await expect(api.fetchHomeworld()).resolves.toEqual(responce)
+      await expect(api.fetchHomeworld()).resolves.toEqual(response)
     })
   
     it('throws an error if status code is not ok', async () => {
@@ -138,17 +138,17 @@ describe('APIManager class', () => {
 
   describe('fetch Species', () => {
     let api;
-    let responce 
+    let response 
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         name: "Human"
       }
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -162,7 +162,7 @@ describe('APIManager class', () => {
   
     it('returns an object if status code is ok', async () => {
       
-      await expect(api.fetchSpecies()).resolves.toEqual(responce.name)
+      await expect(api.fetchSpecies()).resolves.toEqual(response.name)
     })
   
     it('throws an error if status code is not ok', async () => {
@@ -174,11 +174,11 @@ describe('APIManager class', () => {
 
   describe('fetch Vehicles', () => {
     let api;
-    let responce;
+    let response;
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         results: [
           {
             name: "Sand Crawler", 
@@ -188,10 +188,10 @@ describe('APIManager class', () => {
           }
         ]
       }
-      api.cleanVehicles = jest.fn().mockImplementation(() => responce)
+      api.cleanVehicles = jest.fn().mockImplementation(() => response)
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -207,12 +207,12 @@ describe('APIManager class', () => {
 
       await api.fetchVehicles()
       
-      expect(api.cleanVehicles).toHaveBeenCalledWith(responce.results)
+      expect(api.cleanVehicles).toHaveBeenCalledWith(response.results)
     })
 
     it('returns an object if status code is ok', async () => {
       
-      await expect(api.fetchVehicles()).resolves.toEqual(responce)
+      await expect(api.fetchVehicles()).resolves.toEqual(response)
     })
     
 
@@ -225,11 +225,11 @@ describe('APIManager class', () => {
 
   describe('fetch Planets', () => {
     let api;
-    let responce;
+    let response;
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         results: [
           {
             name: "Alderaan", 
@@ -240,10 +240,10 @@ describe('APIManager class', () => {
           }
         ]
       }
-      api.cleanPlanets = jest.fn().mockImplementation(() => responce)
+      api.cleanPlanets = jest.fn().mockImplementation(() => response)
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -259,12 +259,12 @@ describe('APIManager class', () => {
 
       await api.fetchPlanets()
       
-      expect(api.cleanPlanets).toHaveBeenCalledWith(responce.results)
+      expect(api.cleanPlanets).toHaveBeenCalledWith(response.results)
     })
 
     it('returns an object if status code is ok', async () => {
       
-      await expect(api.fetchPlanets()).resolves.toEqual(responce)
+      await expect(api.fetchPlanets()).resolves.toEqual(response)
     })
     
 
@@ -277,17 +277,17 @@ describe('APIManager class', () => {
 
   describe('fetch Residents', () => {
     let api;
-    let responce 
+    let response 
 
     beforeEach(() => {
       api = new APIManager();
-      responce = {
+      response = {
         name: "Tony"
       }
 
       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
         status: 200,
-        json: () => Promise.resolve(responce)
+        json: () => Promise.resolve(response)
       }))
     })
   
@@ -302,13 +302,105 @@ describe('APIManager class', () => {
     it('returns an object if status code is ok', async () => {
       const urls = ["url", "url", "url"]
 
-      await expect(api.fetchResidents(urls)).resolves.toEqual([responce.name, responce.name])
+      await expect(api.fetchResidents(urls)).resolves.toEqual([response.name, response.name, response.name])
     })
   
-    it.skip('throws an error if status code is not ok', async () => {
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+    it('throws an error if status code is not ok', async () => {
+      const urls = ["url", "url", "url"]
+      let expected = Error('Failed to fetch data')
+      window.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(expected))
+                              .mockImplementationOnce(() => Promise.resolve({ status: 500 }))
+                              .mockImplementationOnce(() => Promise.resolve({ status: 500 }))
+                        
   
-      await expect(api.fetchResidents()).rejects.toEqual(Error('Failed to fetch data'))
+      await expect(api.fetchResidents(urls)).rejects.toEqual(expected)
     })
+
+
   })
+
+  describe('clean People', () => {
+    let newApi;
+    let people;
+    let person;
+    let homeworldResponse;
+    let speciesResponse;
+    let cleanResponse;
+    
+    
+    beforeEach(() => {
+      newApi = new APIManager();
+      people = [
+        {
+          name: "Luke Skywalker", 
+          homeworld: "url", 
+          species: [ "url" ]
+        },
+        {
+          name: "Han Solo", 
+          homeworld: "url", 
+          species: [ "url" ]
+        }
+      ]
+
+      person = {
+        name: "Han Solo", 
+        homeworld: "url", 
+        species: [ "url" ]
+      }
+
+      homeworldResponse = {
+        name: "earth", 
+        population: 4000
+      }
+
+      speciesResponse = "human"
+
+      cleanResponse = [
+        {
+          name: people[0].name, 
+          homeworld: homeworldResponse.name,
+          population: homeworldResponse.population,
+          species: speciesResponse
+        },
+        {
+          name: people[1].name, 
+          homeworld: homeworldResponse.name, 
+          population: homeworldResponse.population,
+          species: speciesResponse
+        }
+      ]
+
+      newApi.fetchHomeworld = jest.fn().mockImplementation(() => homeworldResponse);
+
+      newApi.fetchSpecies = jest.fn().mockImplementation(() => speciesResponse);
+
+    })
+  
+    it('calls fetch Homeworld with the correct params', async () => {
+      const expected = person.homeworld
+  
+      newApi.fetchHomeworld(expected)
+
+      expect(newApi.fetchHomeworld).toHaveBeenCalledWith(expected)
+    })
+
+    it('calls fetch Species with the correct params', async () => {
+      const expected = person.species
+
+      newApi.fetchSpecies(expected)
+
+      expect(newApi.fetchSpecies).toHaveBeenCalledWith(expected)
+    })
+  
+    it('returns the desired object if passed correct perams', async () => {
+      const result = await newApi.cleanPeople(people)
+
+      await expect(result).toEqual(cleanResponse)
+    })
+
+
+  })
+
+
 })
