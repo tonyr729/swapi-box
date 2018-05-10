@@ -92,6 +92,42 @@ describe('APIManager class', () => {
     })
   })
 
- 
+  describe('fetch Homeworld', () => {
+    let api;
+    let responce 
+
+    beforeEach(() => {
+      api = new APIManager();
+      responce = {
+        name: "Earth",
+        population: "6000000000"
+      }
+
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(responce)
+      }))
+    })
+  
+    it('fetch is called with the correct params', async () => {
+      const expected = "url"
+  
+      await api.fetchHomeworld(expected)
+
+      expect(window.fetch).toHaveBeenCalledWith(expected)
+    })
+  
+    it('returns an object if status code is ok', async () => {
+      
+      await expect(api.fetchHomeworld()).resolves.toEqual(responce)
+    })
+  
+    it('throws an error if status code is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({ status: 500 }))
+  
+      await expect(api.fetchHomeworld()).rejects.toEqual(Error('Failed to fetch data'))
+    })
+  })
+
   
 })
