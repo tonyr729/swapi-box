@@ -454,8 +454,79 @@ describe('APIManager class', () => {
 
       await expect(result).toEqual(cleanResponse)
     })
+  })
 
+  describe('clean Planets', () => {
+    let newApi;
+    let planets;
+    let planet;
+    let residentsResponse;
+    let cleanResponse
 
+    
+    beforeEach(() => {
+      newApi = new APIManager();
+      planets = [
+        {
+          name: "Alderaan", 
+          climate: "temperate", 
+          terrain: "grasslands, mountains", 
+          population: "2000000000", 
+          residents: ["url", "url", "url"] 
+        },
+        {
+          name: "Death Star", 
+          climate: "AC", 
+          terrain: "metal", 
+          population: "200000", 
+          residents: ["url", "url", "url"] 
+        }
+      ]
+      
+      planet = {
+        name: "Alderaan", 
+        climate: "temperate", 
+        terrain: "grasslands, mountains", 
+        population: "2000000000", 
+        residents: ["url", "url", "url"] 
+      }
+      
+      residentsResponse = ["Lando", "Solo", "Ray"]
+
+      newApi.fetchResidents = jest.fn().mockImplementation(() => residentsResponse)
+      
+      cleanResponse = [
+        {
+          climate: "temperate", 
+          name: "Alderaan", 
+          population: "2000000000", 
+          residents: "Lando, Solo, Ray",
+          terrain: "grasslands, mountains" 
+        },
+        {
+          climate: "AC", 
+          name: "Death Star", 
+          population: "200000", 
+          residents: "Lando, Solo, Ray",
+          terrain: "metal" 
+        }
+      ]
+
+    })
+    
+    it('calls fetch Residents with the correct params', async () => {
+      const expected = planet.residents;
+  
+      newApi.cleanPlanets(planets);
+
+      expect(newApi.fetchResidents).toHaveBeenCalledWith(expected)
+    })
+  
+    it('returns the desired object if passed correct perams', async () => {
+      const result = await newApi.cleanPlanets(planets)
+
+      await expect(result).toEqual(cleanResponse)
+    })
   })
 
 
