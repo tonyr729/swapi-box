@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import APIManager from './apiManager';
-import { shallow } from 'enzyme';
 
 
 describe('APIManager class', () => {
@@ -528,6 +527,4 @@ describe('APIManager class', () => {
       await expect(result).toEqual(cleanResponse)
     })
   })
-
-
 })
