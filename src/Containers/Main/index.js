@@ -3,7 +3,6 @@ import Header from '../../Components/Statefull/Header/index'
 import CardContainer from '../CardContainer/CardContainer'
 import APIManager from '../../Helpers/API/API Manager/apiManager'
 import './index.css';
-const apiManager = new APIManager();
 
 class Main extends Component {
   constructor() {
@@ -11,24 +10,25 @@ class Main extends Component {
     this.state = {
       data: []
     }
+    this.api = new APIManager
   }
-
+  
   setPeopleData= async () => {
-    const people = await apiManager.fetchPeople();
+    const people = await this.api.fetchPeople();
     this.setState({
       data: people
     })
   }
 
   setVehicleData= async () => {
-    const vehicles = await apiManager.fetchVehicles();
+    const vehicles = await this.api.fetchVehicles();
     this.setState({
       data: vehicles
     })
   }
 
   setPlanetData= async () => {
-    const planets = await apiManager.fetchPlanets();
+    const planets = await this.api.fetchPlanets();
     this.setState({
       data: planets
     })
