@@ -7,8 +7,8 @@ const FavButton =({favorites, setDisplayedData}) => {
   return (
     <div className='favorite-div' onClick={() => setDisplayedData('favorites')}>
       <p className='favorite-text'>Favorites</p>
-      <div>
-        <p className='favorite-count'>
+      <div className='favorite-count'>
+        <p>
           {favorites}
         </p>
       </div>

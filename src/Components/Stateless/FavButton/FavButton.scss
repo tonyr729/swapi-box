@@ -1,7 +1,23 @@
+p {
+  margin: 0;
+}
+
+.favorite-div {
+  position: absolute;
+  right: 0;
+  top: 0;
+  &:hover { background-color: rgb(228, 148, 0); }
+  &:active { background-color: rgb(255, 81, 1); }
+}
+
 .favorite-text {
+  display: inline-block;
   color: #fff;
 }
 
 .favorite-count {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, .5);
   color: #fff;
+  padding: .3rem 1rem;
 }
