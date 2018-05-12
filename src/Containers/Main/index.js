@@ -17,7 +17,7 @@ class Main extends Component {
     this.api = new APIManager();
   }
   
-  setPeopleData= async (category) => {
+  setPeopleData= async () => {
     if(!this.state.people.length) {
       const people = await this.api.fetchPeople();
       this.setState({people})

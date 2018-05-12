@@ -1,10 +1,11 @@
-import React, { Component } from 'react';
-import './index.css'
-import FavButton from '../FavButton/FavButton'
+import React from 'react';
+import './index.css';
+import FavButton from '../FavButton/FavButton';
+import PropTypes from 'prop-types';
 
 
 const Header = ({setPeopleData, setPlanetData, setVehicleData, setDisplayedData, favorites}) =>{
- 
+
   return (
     <div>
       <h1 className="header-title">SWAPI-Box</h1>
@@ -16,5 +17,11 @@ const Header = ({setPeopleData, setPlanetData, setVehicleData, setDisplayedData,
   )
 }
 
+Header.propTypes = {
+  setPeopleData: PropTypes.func,
+  setPlanetData: PropTypes.func,
+  setVehicleData: PropTypes.func,
+  setDisplayedData: PropTypes.func
+};
 
 export default Header;

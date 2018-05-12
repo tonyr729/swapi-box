@@ -3,7 +3,6 @@ import Card from '../../Components/Stateless/Card/Card'
 import './CardContainer.css'
 
 const CardContainer = ({data, setFavorites}) => {
-  debugger;
   const cards = data.displayed.map((personObject, index)=> {
     return <Card key={index} data={personObject} setFavorites={setFavorites} />
   })
