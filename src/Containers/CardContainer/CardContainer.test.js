@@ -7,7 +7,7 @@ describe('CardContainer', () => {
 
   describe('Component', () => {
     it('should match snapshot', () => {
-      const cardContainer = renderer.create(<CardContainer data={[{name: "tony"}]}/>).toJSON();
+      const cardContainer = renderer.create(<CardContainer data={{displayed: ["tony"]}} setFavorites={ jest.fn() }/>).toJSON();
 
       expect(cardContainer).toMatchSnapshot();
     })

@@ -8,37 +8,60 @@ class Main extends Component {
   constructor() {
     super()
     this.state = {
-      data: []
+      people: [],
+      vehicles: [],
+      planets: [],
+      favorites: [], 
+      displayed: []
     }
-    this.api = new APIManager
+    this.api = new APIManager();
   }
   
-  setPeopleData= async () => {
-    const people = await this.api.fetchPeople();
-    this.setState({
-      data: people
-    })
+  setPeopleData= async (category) => {
+    if(!this.state.people.length) {
+      const people = await this.api.fetchPeople();
+      this.setState({people})
+    } 
+    this.setDisplayedData('people')
   }
 
   setVehicleData= async () => {
-    const vehicles = await this.api.fetchVehicles();
+    if(!this.state.vehicles.length) {
+      const vehicles = await this.api.fetchVehicles();
+      this.setState({vehicles})
+    }
+    this.setDisplayedData('vehicles')
+  }
+
+  setPlanetData = async () => {
+    if(!this.state.planets.length) {
+      const planets = await this.api.fetchPlanets();
+      this.setState({planets})
+    }
+    this.setDisplayedData('planets');
+  }
+
+  setDisplayedData = (category) => {
     this.setState({
-      data: vehicles
+      displayed: this.state[category]
     })
   }
 
-  setPlanetData= async () => {
-    const planets = await this.api.fetchPlanets();
-    this.setState({
-      data: planets
-    })
+  setFavorites = (favoriteCard) => {
+    let favorites = [...this.state.favorites];
+    if (!favorites.find(favoriteObject => favoriteObject.name === favoriteCard.name)) {
+      favorites.push(favoriteCard);
+    } else {
+      favorites = favorites.filter(item => item.name !== favoriteCard.name);
+    }
+    this.setState({favorites});
   }
 
   render() {
     return(
       <div className="main">
-        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData }/>
-        <CardContainer data={ this.state.data } />
+        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData } setDisplayedData={ this.setDisplayedData } favorites={ this.state.favorites.length } />
+        <CardContainer data={ this.state } setFavorites={ this.setFavorites } />
       </div>
     )
   }

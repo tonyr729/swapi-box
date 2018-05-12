@@ -360,13 +360,15 @@ describe('APIManager class', () => {
           name: people[0].name, 
           homeworld: homeworldResponse.name,
           population: homeworldResponse.population,
-          species: speciesResponse
+          species: speciesResponse,
+          favorite: false
         },
         {
           name: people[1].name, 
           homeworld: homeworldResponse.name, 
           population: homeworldResponse.population,
-          species: speciesResponse
+          species: speciesResponse,
+          favorite: false
         }
       ]
 
@@ -437,13 +439,15 @@ describe('APIManager class', () => {
           name: vehicles[0].name, 
           model: vehicles[0].model,
           passengers: vehicles[0].passengers,
-          vehicleClass: vehicles[0].vehicle_class
+          vehicleClass: vehicles[0].vehicle_class,
+          favorite: false
         },
         {
           name: vehicles[1].name, 
           model: vehicles[1].model,
           passengers: vehicles[1].passengers,
-          vehicleClass: vehicles[1].vehicle_class
+          vehicleClass: vehicles[1].vehicle_class,
+          favorite: false
         }
       ]
     })
@@ -500,14 +504,16 @@ describe('APIManager class', () => {
           name: "Alderaan", 
           population: "2000000000", 
           residents: "Lando, Solo, Ray",
-          terrain: "grasslands, mountains" 
+          terrain: "grasslands, mountains",
+          favorite: false
         },
         {
           climate: "AC", 
           name: "Death Star", 
           population: "200000", 
           residents: "Lando, Solo, Ray",
-          terrain: "metal" 
+          terrain: "metal",
+          favorite: false
         }
       ]
 

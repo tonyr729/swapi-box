@@ -104,7 +104,7 @@ class APIManager {
       const species = await this.fetchSpecies(person.species);
       const population = homeworldObject.population;
       
-      return {name, homeworld, species, population}
+      return {name, homeworld, species, population, favorite: false}
     })
   
     return Promise.all(unresolvedPromises);
@@ -117,7 +117,7 @@ class APIManager {
       const vehicleClass = vehicle.vehicle_class;
       const passengers = vehicle.passengers;
   
-      return {name, model, vehicleClass, passengers}
+      return {name, model, vehicleClass, passengers, favorite: false}
     })
   
     return Promise.all(unresolvedPromises);
@@ -132,7 +132,7 @@ class APIManager {
       const residentNames = await this.fetchResidents(planet.residents)
       const residents = residentNames.join(", ");
   
-      return {name, terrain, population, climate, residents}
+      return {name, terrain, population, climate, residents, favorite: false}
     })
   
     return Promise.all(unresolvedPromises);

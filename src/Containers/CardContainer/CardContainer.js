@@ -2,10 +2,10 @@ import React from 'react';
 import Card from '../../Components/Stateless/Card/Card'
 import './CardContainer.css'
 
-const CardContainer = ({data}) => {
-  
-  const cards = data.map((personObject, index)=> {
-    return <Card key={index} data={personObject} />
+const CardContainer = ({data, setFavorites}) => {
+  debugger;
+  const cards = data.displayed.map((personObject, index)=> {
+    return <Card key={index} data={personObject} setFavorites={setFavorites} />
   })
 
   return(

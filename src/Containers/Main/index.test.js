@@ -38,11 +38,11 @@ describe('Main', () => {
       const main = shallow(<Main />);
       const expected = ['card1', 'card2']
       
-      expect(main.state('data')).toEqual([])
+      expect(main.state('displayed')).toEqual([])
 
       Promise.resolve(main.instance().setPeopleData())
         .then(() => main.update())
-        .then(() => expect(main.state('data')).toEqual(expected))
+        .then(() => expect(main.state('displayed')).toEqual(expected))
     })
   })
 
@@ -60,11 +60,11 @@ describe('Main', () => {
       const main = shallow(<Main />);
       const expected = ['card1', 'card2']
       
-      expect(main.state('data')).toEqual([])
+      expect(main.state('displayed')).toEqual([])
 
       Promise.resolve(main.instance().setVehicleData())
         .then(() => main.update())
-        .then(() => expect(main.state('data')).toEqual(expected))
+        .then(() => expect(main.state('displayed')).toEqual(expected))
     })
   })
 
@@ -82,11 +82,11 @@ describe('Main', () => {
       const main = shallow(<Main />);
       const expected = ['card1', 'card2']
       
-      expect(main.state('data')).toEqual([])
+      expect(main.state('displayed')).toEqual([])
 
       Promise.resolve(main.instance().setPlanetData())
         .then(() => main.update())
-        .then(() => expect(main.state('data')).toEqual(expected))
+        .then(() => expect(main.state('displayed')).toEqual(expected))
     })
   })
 

@@ -8,11 +8,28 @@ exports[`CardContainer Component should match snapshot 1`] = `
     className="card"
   >
     <p>
-      Name
+      0
       : 
-      tony
+      t
     </p>
-    <button>
+    <p>
+      1
+      : 
+      o
+    </p>
+    <p>
+      2
+      : 
+      n
+    </p>
+    <p>
+      3
+      : 
+      y
+    </p>
+    <button
+      onClick={[Function]}
+    >
       ★
     </button>
   </div>
