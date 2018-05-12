@@ -20,9 +20,7 @@ class Main extends Component {
   setPeopleData= async (category) => {
     if(!this.state.people.length) {
       const people = await this.api.fetchPeople();
-      this.setState({
-        people: people
-      })
+      this.setState({people})
     } 
     this.setDisplayedData('people')
   }
@@ -30,9 +28,7 @@ class Main extends Component {
   setVehicleData= async () => {
     if(!this.state.vehicles.length) {
       const vehicles = await this.api.fetchVehicles();
-      this.setState({
-        vehicles: vehicles
-      })
+      this.setState({vehicles})
     }
     this.setDisplayedData('vehicles')
   }
@@ -40,9 +36,7 @@ class Main extends Component {
   setPlanetData = async () => {
     if(!this.state.planets.length) {
       const planets = await this.api.fetchPlanets();
-      this.setState({
-        planets: planets
-      })
+      this.setState({planets})
     }
     this.setDisplayedData('planets');
   }
@@ -53,11 +47,21 @@ class Main extends Component {
     })
   }
 
+  setFavorites = (favoriteCard) => {
+    let favorites = [...this.state.favorites];
+    if (!favorites.find(favoriteObject => favoriteObject.name === favoriteCard.name)) {
+      favorites.push(favoriteCard);
+    } else {
+      favorites = favorites.filter(item => item.name !== favoriteCard.name);
+    }
+    this.setState({favorites});
+  }
+
   render() {
     return(
       <div className="main">
-        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData } favorites={ this.state.favorites.length } />
-        <CardContainer data={ this.state.displayed } />
+        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData } setDisplayedData={ this.setDisplayedData } favorites={ this.state.favorites.length } />
+        <CardContainer data={ this.state } setFavorites={ this.setFavorites } />
       </div>
     )
   }

@@ -1,13 +1,13 @@
 import React from 'react';
 import './FavButton.css'
 
-const FavButton =({favorites}) => {
+const FavButton =({favorites, setDisplayedData}) => {
 
   return (
-    <div>
-      <p>Favorites</p>
+    <div onClick={() => setDisplayedData('favorites')}>
+      <p className='favorite-text'>Favorites</p>
       <div>
-        <p>
+        <p className='favorite-count'>
           {favorites}
         </p>
       </div>

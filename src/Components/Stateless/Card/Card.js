@@ -1,7 +1,7 @@
 import React from 'react';
 import './Card.css'
 
-const Card =({data}) => {
+const Card =({data, setFavorites}) => {
   const keys = Object.keys(data)
   const cardContents = keys.map((keyname, index) => {
     let key = keyname;
@@ -12,11 +12,13 @@ const Card =({data}) => {
       <p key={index} >{ key.charAt(0).toUpperCase() + key.slice(1) }: { data[keyname] }</p>
     )
   })
+
+  
     
   return (
     <div className="card">
       { cardContents }
-      <button>★</button>
+      <button onClick={() => setFavorites(data)}>★</button>
     </div>
   )
 }

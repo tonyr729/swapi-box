@@ -1,12 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FavButton Component should match snapshot 1`] = `
-<div>
-  <p>
+<div
+  onClick={[Function]}
+>
+  <p
+    className="favorite-text"
+  >
     Favorites
   </p>
   <div>
-    <p>
+    <p
+      className="favorite-count"
+    >
       0
     </p>
   </div>

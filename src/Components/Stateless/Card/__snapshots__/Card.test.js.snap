@@ -9,7 +9,9 @@ exports[`Card Component should match snapshot 1`] = `
     : 
     awesome
   </p>
-  <button>
+  <button
+    onClick={[Function]}
+  >
     ★
   </button>
 </div>
