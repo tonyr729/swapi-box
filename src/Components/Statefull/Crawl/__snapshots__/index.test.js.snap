@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Component should match snapshot 1`] = `
+<div
+  className="crawl-container"
+>
+  <div
+    className="fade"
+  />
+  <section
+    className="star-wars"
+  >
+    <div
+      className="crawl"
+    >
+      <div
+        className="title"
+      >
+        <p>
+          Episode 
+          
+        </p>
+        <h1>
+          
+        </h1>
+      </div>
+      <p>
+        
+      </p>
+      <p>
+        
+      </p>
+    </div>
+  </section>
+</div>
+`;

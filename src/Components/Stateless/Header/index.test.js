@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import Card from './Card';
+import Header from './index'
 
-describe('Card', () => {
+describe('Header', () => {
 
   describe('Component', () => {
     it('should match snapshot', () => {
-      const card = renderer.create(<Card data={{vehicleClass: "awesome"}}/>).toJSON();
+      const header = renderer.create(<Header />).toJSON();
 
-      expect(card).toMatchSnapshot();
+      expect(header).toMatchSnapshot();
     })
   })
 })
