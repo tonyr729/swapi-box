@@ -299,17 +299,15 @@ describe('APIManager class', () => {
     })
   
     it('returns an object if status code is ok', async () => {
-      const urls = ["url", "url", "url"]
+      const urls = ["url"]
 
-      await expect(api.fetchResidents(urls)).resolves.toEqual([response.name, response.name, response.name])
+      await expect(api.fetchResidents(urls)).resolves.toEqual([response.name])
     })
   
     it('throws an error if status code is not ok', async () => {
-      const urls = ["url", "url", "url"]
+      const urls = ["url"]
       let expected = Error('Failed to fetch data')
       window.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(expected))
-                              .mockImplementationOnce(() => Promise.resolve({ status: 500 }))
-                              .mockImplementationOnce(() => Promise.resolve({ status: 500 }))
                         
   
       await expect(api.fetchResidents(urls)).rejects.toEqual(expected)

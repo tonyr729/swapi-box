@@ -44,6 +44,18 @@ describe('Main', () => {
         .then(() => main.update())
         .then(() => expect(main.state('displayed')).toEqual(expected))
     })
+
+    it('should not call fetchPeople if state is already populated with people', async () => {
+      const main = shallow(<Main />);
+
+      main.setState({
+        people: [{name: "Tony"}]
+      })
+
+      Promise.resolve(main.instance().setPeopleData())
+        .then(() => main.update())
+        .then(() => expect(main.instance().api.fetchPeople).not.toHaveBeenCalled())
+    })
   })
 
   describe('setVehicleData method', () => {
@@ -65,6 +77,18 @@ describe('Main', () => {
       Promise.resolve(main.instance().setVehicleData())
         .then(() => main.update())
         .then(() => expect(main.state('displayed')).toEqual(expected))
+    })
+
+    it('should not call fetchVehicle if state is already populated with vehicles', async () => {
+      const main = shallow(<Main />);
+
+      main.setState({
+        vehicles: [{name: "Tony"}]
+      })
+
+      Promise.resolve(main.instance().setVehicleData())
+        .then(() => main.update())
+        .then(() => expect(main.instance().api.fetchVehicles).not.toHaveBeenCalled())
     })
   })
 
@@ -88,6 +112,46 @@ describe('Main', () => {
         .then(() => main.update())
         .then(() => expect(main.state('displayed')).toEqual(expected))
     })
+
+    it('should not call fetchPlanets if state is already populated with Planet', async () => {
+      const main = shallow(<Main />);
+
+      main.setState({
+        planets: [{name: "Tony"}]
+      })
+
+      Promise.resolve(main.instance().setPlanetData())
+        .then(() => main.update())
+        .then(() => expect(main.instance().api.fetchPlanets).not.toHaveBeenCalled())
+    })
   })
 
+  describe('setFavorites method', () => {
+    
+    it('should set state of favorites to include incoming object', async () => {
+      const main = shallow(<Main />);
+      const expected = {name: "tony"}
+      
+      expect(main.state('favorites')).toEqual([])
+
+      Promise.resolve(main.instance().setFavorites(expected))
+        .then(() => main.update())
+        .then(() => expect(main.state('favorites')).toEqual([expected]))
+    })
+
+    it('should remove the object passed from state if already a favorite', async () => {
+      const main = shallow(<Main />);
+      const expected = {name: "tony"}
+
+      main.setState({
+        favorites: [expected]
+      })
+      
+      expect(main.state('favorites')).toEqual([expected])
+
+      Promise.resolve(main.instance().setFavorites(expected))
+        .then(() => main.update())
+        .then(() => expect(main.state('favorites')).toEqual([]))
+    })
+  })
 })

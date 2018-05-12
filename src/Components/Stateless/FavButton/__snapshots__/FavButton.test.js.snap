@@ -2,6 +2,7 @@
 
 exports[`FavButton Component should match snapshot 1`] = `
 <div
+  className="favorite-div"
   onClick={[Function]}
 >
   <p

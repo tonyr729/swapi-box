@@ -11,6 +11,7 @@ exports[`Main Component should match snapshot 1`] = `
       SWAPI-Box
     </h1>
     <div
+      className="favorite-div"
       onClick={[Function]}
     >
       <p

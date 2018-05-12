@@ -1,10 +1,11 @@
 import React from 'react';
 import './FavButton.css'
+import PropTypes from 'prop-types'
 
 const FavButton =({favorites, setDisplayedData}) => {
 
   return (
-    <div onClick={() => setDisplayedData('favorites')}>
+    <div className='favorite-div' onClick={() => setDisplayedData('favorites')}>
       <p className='favorite-text'>Favorites</p>
       <div>
         <p className='favorite-count'>
@@ -14,5 +15,12 @@ const FavButton =({favorites, setDisplayedData}) => {
     </div>
   )
 }
+
+
+
+FavButton.propTypes = {
+  favorites: PropTypes.number,
+  setDisplayedData: PropTypes.func
+};
 
 export default FavButton;
