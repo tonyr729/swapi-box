@@ -4,15 +4,158 @@ exports[`Card Component should match snapshot 1`] = `
 <div
   className="card"
 >
-  <p>
-    Class
-    : 
-    awesome
-  </p>
   <button
+    className="card-button active"
     onClick={[Function]}
   >
     ★
   </button>
+  <div
+    className="card-text"
+  >
+    <p>
+      Class
+      : 
+      awesome
+    </p>
+  </div>
 </div>
+`;
+
+exports[`Card Component should not pass the favorites property in to be rendered 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Card
+    data={
+        Object {
+            "favorite": true,
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <button
+          className="card-button active"
+          onClick={[Function]}
+>
+          ★
+</button>,
+        <div
+          className="card-text"
+>
+          
+</div>,
+      ],
+      "className": "card",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "★",
+          "className": "card-button active",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "★",
+        "type": "button",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+          ],
+          "className": "card-text",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <button
+            className="card-button active"
+            onClick={[Function]}
+>
+            ★
+</button>,
+          <div
+            className="card-text"
+>
+            
+</div>,
+        ],
+        "className": "card",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "★",
+            "className": "card-button active",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "★",
+          "type": "button",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+            ],
+            "className": "card-text",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
 `;

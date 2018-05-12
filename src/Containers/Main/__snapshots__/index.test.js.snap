@@ -4,7 +4,9 @@ exports[`Main Component should match snapshot 1`] = `
 <div
   className="main"
 >
-  <div>
+  <div
+    className="header"
+  >
     <h1
       className="header-title"
     >
@@ -19,29 +21,33 @@ exports[`Main Component should match snapshot 1`] = `
       >
         Favorites
       </p>
-      <div>
-        <p
-          className="favorite-count"
-        >
+      <div
+        className="favorite-count"
+      >
+        <p>
           0
         </p>
       </div>
     </div>
-    <button
-      onClick={[Function]}
+    <div
+      className="button-container"
     >
-      People
-    </button>
-    <button
-      onClick={[Function]}
-    >
-      Planets
-    </button>
-    <button
-      onClick={[Function]}
-    >
-      Vehicles
-    </button>
+      <button
+        onClick={[Function]}
+      >
+        People
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Planets
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Vehicles
+      </button>
+    </div>
   </div>
   <div
     className="card-container"

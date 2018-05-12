@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Main Component should match snapshot 1`] = `
+exports[`Crawl Component should match snapshot 1`] = `
 <div
   className="crawl-container"
 >

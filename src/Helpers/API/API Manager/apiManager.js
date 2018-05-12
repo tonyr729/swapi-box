@@ -82,15 +82,17 @@ class APIManager {
     try {
       const unresolvedPromises = residentURLs.map(async residentURL => {
         const response = await fetch(residentURL);
-        const data = await response.json();
-        const resident = data.name;
-        
-        return resident;
+        if (response.status < 300) {
+          const data = await response.json();
+          const resident =  data.name;
+          return resident;
+        } else {
+          throw new Error(`Fetch resident failed with status ${response.status}`)
+        }
       })
-
       return Promise.all(unresolvedPromises);
     } catch (error) {
-      throw new Error('Failed to fetch data')
+      throw new Error(error)
     }
   } 
 

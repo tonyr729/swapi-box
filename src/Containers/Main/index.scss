@@ -1,10 +1,10 @@
 .main {
-  position: relative;
-  width: 60rem;
+  position: absolute;
+  width: 81rem;
   margin: 0 auto;
   font-size: 1.3rem;
   z-index: 100;
-  // animation: main 40s;
+  animation: main 40s;
   opacity: 1;
   border: 1px solid rgb(255, 157, 0)
 }

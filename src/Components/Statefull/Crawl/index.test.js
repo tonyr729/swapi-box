@@ -12,7 +12,7 @@ jest.mock('../../../Helpers/API/API Manager/apiManager.js', () => {
   });
 });
 
-describe('Main', () => {
+describe('Crawl', () => {
 
   describe('Component', () => {
     it('should match snapshot', () => {

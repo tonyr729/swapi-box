@@ -12,7 +12,7 @@ class Main extends Component {
       vehicles: [],
       planets: [],
       favorites: [], 
-      displayed: [{name: "Tony", race: "Human", status: "Awesome", skills: "Bow and staff"}]
+      displayed: []
     }
     this.api = new APIManager();
   }
@@ -61,7 +61,7 @@ class Main extends Component {
     return(
       <div className="main">
         <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData } setDisplayedData={ this.setDisplayedData } favorites={ this.state.favorites.length } />
-        <CardContainer data={ this.state } setFavorites={ this.setFavorites } />
+        <CardContainer data={ this.state } setFavorites={ this.setFavorites } favorites={ this.state.favorites }/>
       </div>
     )
   }

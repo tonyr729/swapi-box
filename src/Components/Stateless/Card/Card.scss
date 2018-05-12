@@ -1,4 +1,30 @@
 .card {
-  background-color: rgba(255, 255, 255, .3);
-  color: rgb(255, 255, 255)
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  margin: 1rem;
+  text-align: left;
+  padding-left: 1rem;
+  width: 17rem;
+  border: 1px solid rgb(255, 165, 0);
 }
+
+.card-button {
+  display: block;
+  float: right;
+  width: 3.5rem;
+  border-style: none;
+  border-left: 1px solid rgb(255, 165, 0);
+  border-bottom: 1px solid rgb(255, 165, 0);
+}
+
+.active {
+  background-color: red;
+}
+
+.card-text {
+  margin-top: 4rem;
+  p {
+    margin: 1rem 0;
+  }
+}
+

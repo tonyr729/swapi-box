@@ -13,6 +13,12 @@ describe('Card', () => {
       expect(card).toMatchSnapshot();
     })
 
+    it('should not pass the favorites property in to be rendered', () => {
+      const wrapper = shallow(<Card data={{favorite: true}} />)
+
+      expect(wrapper).toMatchSnapshot();
+    })
+
     it('should call setFavorites when clicked', () => {
       const setFavorites = jest.fn()
       const wrapper = shallow(<Card data={{name: "Tony"}} setFavorites={ setFavorites }/>)
