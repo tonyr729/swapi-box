@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from '../../Components/Statefull/Header/index'
+import Header from '../../Components/Stateless/Header'
 import CardContainer from '../CardContainer/CardContainer'
 import APIManager from '../../Helpers/API/API Manager/apiManager'
 import './index.css';

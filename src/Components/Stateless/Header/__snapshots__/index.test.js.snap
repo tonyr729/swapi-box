@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Component should match snapshot 1`] = `
+<div>
+  <h1
+    className="header-title"
+  >
+    SWAPI-Box
+  </h1>
+  <button>
+    View Favorites 0
+  </button>
+  <button
+    onClick={undefined}
+  >
+    People
+  </button>
+  <button
+    onClick={undefined}
+  >
+    Planets
+  </button>
+  <button
+    onClick={undefined}
+  >
+    Vehicles
+  </button>
+</div>
+`;
