@@ -12,7 +12,7 @@ class Main extends Component {
       vehicles: [],
       planets: [],
       favorites: [], 
-      displayed: []
+      displayed: [{name: "Tony", race: "Human", status: "Awesome", skills: "Bow and staff"}]
     }
     this.api = new APIManager();
   }

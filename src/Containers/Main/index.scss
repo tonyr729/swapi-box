@@ -1,8 +1,12 @@
 .main {
-  position: absolute;
+  position: relative;
+  width: 60rem;
+  margin: 0 auto;
+  font-size: 1.3rem;
   z-index: 100;
   // animation: main 40s;
   opacity: 1;
+  border: 1px solid rgb(255, 157, 0)
 }
 
 @keyframes main {
