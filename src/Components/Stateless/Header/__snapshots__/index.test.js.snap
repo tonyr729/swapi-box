@@ -7,9 +7,14 @@ exports[`Header Component should match snapshot 1`] = `
   >
     SWAPI-Box
   </h1>
-  <button>
-    View Favorites 0
-  </button>
+  <div>
+    <p>
+      Favorites
+    </p>
+    <div>
+      <p />
+    </div>
+  </div>
   <button
     onClick={undefined}
   >

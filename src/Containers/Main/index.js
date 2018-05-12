@@ -8,37 +8,56 @@ class Main extends Component {
   constructor() {
     super()
     this.state = {
-      data: []
+      people: [],
+      vehicles: [],
+      planets: [],
+      favorites: [], 
+      displayed: []
     }
-    this.api = new APIManager
+    this.api = new APIManager();
   }
   
-  setPeopleData= async () => {
-    const people = await this.api.fetchPeople();
-    this.setState({
-      data: people
-    })
+  setPeopleData= async (category) => {
+    if(!this.state.people.length) {
+      const people = await this.api.fetchPeople();
+      this.setState({
+        people: people
+      })
+    } 
+    this.setDisplayedData('people')
   }
 
   setVehicleData= async () => {
-    const vehicles = await this.api.fetchVehicles();
-    this.setState({
-      data: vehicles
-    })
+    if(!this.state.vehicles.length) {
+      const vehicles = await this.api.fetchVehicles();
+      this.setState({
+        vehicles: vehicles
+      })
+    }
+    this.setDisplayedData('vehicles')
   }
 
-  setPlanetData= async () => {
-    const planets = await this.api.fetchPlanets();
+  setPlanetData = async () => {
+    if(!this.state.planets.length) {
+      const planets = await this.api.fetchPlanets();
+      this.setState({
+        planets: planets
+      })
+    }
+    this.setDisplayedData('planets');
+  }
+
+  setDisplayedData = (category) => {
     this.setState({
-      data: planets
+      displayed: this.state[category]
     })
   }
 
   render() {
     return(
       <div className="main">
-        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData }/>
-        <CardContainer data={ this.state.data } />
+        <Header setPeopleData={ this.setPeopleData } setVehicleData={ this.setVehicleData } setPlanetData={ this.setPlanetData } favorites={ this.state.favorites.length } />
+        <CardContainer data={ this.state.displayed } />
       </div>
     )
   }

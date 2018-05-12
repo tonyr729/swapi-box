@@ -5,9 +5,9 @@ exports[`Card Component should match snapshot 1`] = `
   className="card"
 >
   <p>
-    Name
+    Class
     : 
-    tony
+    awesome
   </p>
   <button>
     ★
