@@ -306,8 +306,10 @@ describe('APIManager class', () => {
   
     it('throws an error if status code is not ok', async () => {
       const urls = ["url"]
-      let expected = Error('Failed to fetch data')
-      window.fetch = jest.fn().mockImplementationOnce(() => Promise.reject(expected))
+      let expected = new Error('Fetch resident failed with status 500')
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+        status: 500
+      }))
                         
   
       await expect(api.fetchResidents(urls)).rejects.toEqual(expected)

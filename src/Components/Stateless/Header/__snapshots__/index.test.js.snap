@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header Component should match snapshot 1`] = `
-<div>
+<div
+  className="header"
+>
   <h1
     className="header-title"
   >
@@ -16,26 +18,30 @@ exports[`Header Component should match snapshot 1`] = `
     >
       Favorites
     </p>
-    <div>
-      <p
-        className="favorite-count"
-      />
+    <div
+      className="favorite-count"
+    >
+      <p />
     </div>
   </div>
-  <button
-    onClick={undefined}
+  <div
+    className="button-container"
   >
-    People
-  </button>
-  <button
-    onClick={undefined}
-  >
-    Planets
-  </button>
-  <button
-    onClick={undefined}
-  >
-    Vehicles
-  </button>
+    <button
+      onClick={undefined}
+    >
+      People
+    </button>
+    <button
+      onClick={undefined}
+    >
+      Planets
+    </button>
+    <button
+      onClick={undefined}
+    >
+      Vehicles
+    </button>
+  </div>
 </div>
 `;

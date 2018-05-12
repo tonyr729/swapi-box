@@ -10,10 +10,10 @@ exports[`FavButton Component should match snapshot 1`] = `
   >
     Favorites
   </p>
-  <div>
-    <p
-      className="favorite-count"
-    >
+  <div
+    className="favorite-count"
+  >
+    <p>
       0
     </p>
   </div>
