@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="main"
+  >
+    <div
+      className="header"
+    >
+      <h1
+        className="header-title"
+      >
+        SWAPI-Box
+      </h1>
+      <div
+        className="favorite-div"
+        onClick={[Function]}
+      >
+        <p
+          className="favorite-text"
+        >
+          Favorites
+        </p>
+        <div
+          className="favorite-count"
+        >
+          <p>
+            0
+          </p>
+        </div>
+      </div>
+      <div
+        className="button-container"
+      >
+        <button
+          onClick={[Function]}
+        >
+          People
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Planets
+        </button>
+        <button
+          onClick={[Function]}
+        >
+          Vehicles
+        </button>
+      </div>
+    </div>
+    <div
+      className="card-container"
+    />
+  </div>
+  <div
+    className="crawl-container"
+  >
+    <div
+      className="fade"
+    />
+    <section
+      className="star-wars"
+    >
+      <div
+        className="crawl"
+      >
+        <div
+          className="title"
+        >
+          <p>
+            Episode 
+            
+          </p>
+          <h1>
+            
+          </h1>
+        </div>
+        <p>
+          
+        </p>
+        <p>
+          
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+`;

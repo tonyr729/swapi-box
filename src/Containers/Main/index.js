@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from '../../Components/Stateless/Header'
-import CardContainer from '../CardContainer/CardContainer'
-import APIManager from '../../Helpers/API/API Manager/apiManager'
+import Header from '../../Components/Stateless/Header';
+import CardContainer from '../CardContainer/CardContainer';
+import APIManager from '../../Helpers/API/API Manager/apiManager';
 import './index.css';
 
 class Main extends Component {
@@ -20,7 +20,7 @@ class Main extends Component {
   setPeopleData= async () => {
     if(!this.state.people.length) {
       const people = await this.api.fetchPeople();
-      this.setState({people})
+      this.setState({people});
     } 
     this.setDisplayedData('people')
   }
@@ -28,7 +28,7 @@ class Main extends Component {
   setVehicleData= async () => {
     if(!this.state.vehicles.length) {
       const vehicles = await this.api.fetchVehicles();
-      this.setState({vehicles})
+      this.setState({vehicles});
     }
     this.setDisplayedData('vehicles')
   }
@@ -36,7 +36,7 @@ class Main extends Component {
   setPlanetData = async () => {
     if(!this.state.planets.length) {
       const planets = await this.api.fetchPlanets();
-      this.setState({planets})
+      this.setState({planets});
     }
     this.setDisplayedData('planets');
   }
@@ -44,7 +44,7 @@ class Main extends Component {
   setDisplayedData = (category) => {
     this.setState({
       displayed: this.state[category]
-    })
+    });
   }
 
   setFavorites = (favoriteCard) => {

@@ -23,7 +23,6 @@ Header.propTypes = {
   setPeopleData: PropTypes.func,
   setPlanetData: PropTypes.func,
   setVehicleData: PropTypes.func,
-  setDisplayedData: PropTypes.func
 };
 
 export default Header;
