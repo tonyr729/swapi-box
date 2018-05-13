@@ -55,7 +55,7 @@ ShallowWrapper {
         <div
           className="card-text"
 >
-          
+          <p />
 </div>,
       ],
       "className": "card",
@@ -81,13 +81,21 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            undefined,
+            <p />,
           ],
           "className": "card-text",
         },
         "ref": null,
         "rendered": Array [
-          undefined,
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "p",
+          },
         ],
         "type": "div",
       },
@@ -110,7 +118,7 @@ ShallowWrapper {
           <div
             className="card-text"
 >
-            
+            <p />
 </div>,
         ],
         "className": "card",
@@ -136,13 +144,21 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              undefined,
+              <p />,
             ],
             "className": "card-text",
           },
           "ref": null,
           "rendered": Array [
-            undefined,
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "p",
+            },
           ],
           "type": "div",
         },

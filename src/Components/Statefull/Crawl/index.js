@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import APIManager from '../../../Helpers/API/API Manager/apiManager'
-import './index.css'
+import APIManager from '../../../Helpers/API/API Manager/apiManager';
+import './index.css';
 
 
 class Crawl extends Component {
@@ -40,7 +40,6 @@ class Crawl extends Component {
             <p>{this.state.release}</p>
           </div>
         </section>
-        {/* <p className="crawl-skip">Press Enter to skip</p> */}
       </div>
     )
   }

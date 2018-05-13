@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from '../../Components/Stateless/Card/Card'
-import './CardContainer.css'
+import Card from '../../Components/Stateless/Card/Card';
+import './CardContainer.css';
+import PropTypes from 'prop-types';
 
 const CardContainer = ({data, setFavorites, favorites}) => {
   const cards = data.displayed.map((personObject, index)=> {
@@ -13,5 +14,9 @@ const CardContainer = ({data, setFavorites, favorites}) => {
     </div>
   )
 }
+
+CardContainer.propTypes = {
+  data: PropTypes.object
+};
 
 export default CardContainer;
