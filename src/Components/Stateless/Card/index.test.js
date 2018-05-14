@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-import Card from './Card';
+import Card from './index';
 
 describe('Card', () => {
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../../Components/Stateless/Card/Card';
-import './CardContainer.css';
+import Card from '../../Components/Stateless/Card/';
+import './index.css';
 import PropTypes from 'prop-types';
 
 const CardContainer = ({data, setFavorites, favorites}) => {
