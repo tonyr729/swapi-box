@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import APIManager from './apiManager';
+import APIManager from './index';
 
 
 describe('APIManager class', () => {

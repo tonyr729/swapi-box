@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../../Components/Stateless/Header';
-import CardContainer from '../CardContainer/CardContainer';
-import APIManager from '../../Helpers/API/API Manager/apiManager';
+import CardContainer from '../CardContainer/';
+import APIManager from '../../Helpers/API/API Manager/';
 import './index.css';
 
 class Main extends Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import renderer from 'react-test-renderer';
-import CardContainer from './CardContainer'
+import CardContainer from './index'
 
 describe('CardContainer', () => {
 

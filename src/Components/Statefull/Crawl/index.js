@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import APIManager from '../../../Helpers/API/API Manager/apiManager';
+import APIManager from '../../../Helpers/API/API Manager/index';
 import './index.css';
 
 
@@ -14,7 +14,7 @@ class Crawl extends Component {
     }
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     const randomNumber = Math.floor(Math.random() * 7) + 1;
     const api = new APIManager();
     const crawl = await api.fetchCrawl(randomNumber)

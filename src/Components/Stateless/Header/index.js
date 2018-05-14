@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import FavButton from '../FavButton/FavButton';
+import FavButton from '../FavButton';
 import PropTypes from 'prop-types';
 
 

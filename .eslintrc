@@ -75,9 +75,13 @@
       "error", {
         "int32Hint": false
       }
+    ],
+    "plugins": [
+      "react"
     ]
   },
   "globals": {
     "expect": true
   }
+  
 }

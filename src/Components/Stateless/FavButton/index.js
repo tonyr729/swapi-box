@@ -1,5 +1,5 @@
 import React from 'react';
-import './FavButton.css';
+import './index.css';
 import PropTypes from 'prop-types';
 
 const FavButton =({favorites, setDisplayedData}) => {

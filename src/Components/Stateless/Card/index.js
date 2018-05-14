@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.css';
+import './index.css';
 import PropTypes from 'prop-types';
 
 const Card =({data, setFavorites, favorites}) => {
@@ -11,7 +11,7 @@ const Card =({data, setFavorites, favorites}) => {
       key = "class";
     } 
     if (key === 'favorite'){
-      return <p key={index}></p>;
+      return (<p key={index}></p>);
     }
     return (
       <p key={index} >{ key.charAt(0).toUpperCase() + key.slice(1) }: { data[keyname] }</p>

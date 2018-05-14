@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import APIManager from '../../Helpers/API/API Manager/apiManager';
+import APIManager from '../../Helpers/API/API Manager/';
 import Main from './index'
 import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-jest.mock('../../Helpers/API/API Manager/apiManager', () => {
+jest.mock('../../Helpers/API/API Manager/', () => {
   return jest.fn().mockImplementation(() => {
     return {
       fetchPeople: jest.fn().mockImplementation(() => Promise.resolve(['card1', 'card2'])),
